@@ -13,7 +13,12 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   ctrl_pkg
+  image_transport
+  cv_bridge
 )
+
+find_package(OpenCV REQUIRED)
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -70,12 +75,12 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  geometry_msgs
-  std_msgs
-  sensor_msgs
-)
+# generate_messages(
+#   DEPENDENCIES
+#   geometry_msgs
+#   std_msgs
+#   sensor_msgs
+# )
 
 ###################################
 ## catkin specific configuration ##
@@ -89,9 +94,10 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES formant_deepracer
-#  CATKIN_DEPENDS geometry_msgs roscpp std_msgs
+  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
+
 
 ###########
 ## Build ##
@@ -100,12 +106,13 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 add_executable(cmd_vel_transformer src/cmd_vel_transformer.cpp)
 target_link_libraries(cmd_vel_transformer ${catkin_LIBRARIES})
 
 add_executable(image_transformer src/image_transformer.cpp)
-target_link_libraries(image_transformer ${catkin_LIBRARIES})
+target_link_libraries(image_transformer ${OpenCV_LIBS} ${catkin_LIBRARIES})

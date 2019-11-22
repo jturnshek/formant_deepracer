@@ -1,4 +1,5 @@
 <launch>
-  <node name="formant_deepracer" type="cmd_vel_transformer" pkg="cmd_vel_transformer" />
-  <node name="republish" type="republish" pkg="image_transport" args="raw in:=/video_mjpeg compressed out:=/front_camera" />
+  <!-- activate the car and republish the /cmd_vel from teleop to the real controls -->
+  <node name="cmd_vel_transformer" type="cmd_vel_transformer" pkg="formant_deepracer" />
+  <node name="image_transformer" type="image_transformer" pkg="formant_deepracer" />
 </launch>

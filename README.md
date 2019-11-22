@@ -18,7 +18,7 @@ cd && git clone --recurse-submodules git@github.com:jturnshek/formant_deepracer.
 
 ##### Build the repository
 ```
-cd ~/formant_deepracer
+cd ~/catkin_ws
 catkin_make
 ```
 
@@ -26,6 +26,6 @@ catkin_make
 
 ##### Launch
 ```
-source formant_deepracer/devel/setup.sh
-roslaunch formant_deepracer/launch/formant.launch
+source catkin_ws/devel/setup.sh
+roslaunch catkin_ws/launch/formant.launch
 ```

@@ -1,0 +1,4 @@
+<launch>
+  <node name="formant_deepracer" type="cmd_vel_transformer" pkg="cmd_vel_transformer" />
+  <node name="republish" type="republish" pkg="image_transport" args="raw in:=/video_mjpeg compressed out:=/front_camera" />
+</launch>

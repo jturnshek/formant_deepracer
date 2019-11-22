@@ -1,0 +1,10 @@
+string model_name
+string img_format
+int32 width
+int32 height
+int32 num_channels
+int32 platform
+int8 taskType
+int8 preProcessType
+---
+int32 hasError

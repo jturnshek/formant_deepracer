@@ -13,7 +13,7 @@ sudo apt install ros-kinetic-vision-opencv ros-kenetic-cv-bridge
 
 ##### Clone the repository
 ```
-cd && git clone git@github.com:jturnshek/formant_deepracer.git
+cd && git clone git@github.com:jturnshek/formant_deepracer.git --recurse-submodules catkin_ws
 ```
 
 ##### Build the repository

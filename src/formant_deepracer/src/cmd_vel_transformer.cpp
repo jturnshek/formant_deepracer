@@ -9,7 +9,7 @@ ros::Publisher ManualDrivePub;
 ros::Publisher ActivePub;
 ros::ServiceClient ServiceClient;
 
-const float ANGLE_CLAMP_VAL = 0.7;
+const float ANGLE_CLAMP_VAL = 0.9;
 const float THROTTLE_CLAMP_VAL = 0.5;
 
 void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& msg)
@@ -23,22 +23,20 @@ void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& msg)
     if (throttle > THROTTLE_CLAMP_VAL) throttle = THROTTLE_CLAMP_VAL;
     if (throttle < (0 - THROTTLE_CLAMP_VAL)) throttle = (0 - THROTTLE_CLAMP_VAL);
 
-    ROS_INFO("got cmd vel -");
-    ROS_INFO("  - angle: %f", angle);
-    ROS_INFO("  - throttle: %f", throttle);
-
+    // Build the servo control message
     ctrl_pkg::ServoCtrlMsg manual_drive_msg;
     manual_drive_msg.angle = angle;
     manual_drive_msg.throttle = throttle;
 
+    // Post the servo control message
     ManualDrivePub.publish(manual_drive_msg);
-    ROS_INFO("published");
 }
 
 void start_callback(const std_msgs::Bool::ConstPtr& msg)
 {
     ROS_INFO("got start call");
 
+    // Make the service call
     ctrl_pkg::EnableStateSrv enable_state_srv;
     enable_state_srv.request.isActive = true;
     if (ServiceClient.call(enable_state_srv)) {
@@ -59,6 +57,7 @@ void stop_callback(const std_msgs::Bool::ConstPtr& msg)
 {
     ROS_INFO("got stop call");
 
+    // Make the service call
     ctrl_pkg::EnableStateSrv enable_state_srv;
     enable_state_srv.request.isActive = false;
     if (ServiceClient.call(enable_state_srv)) {
@@ -77,15 +76,20 @@ void stop_callback(const std_msgs::Bool::ConstPtr& msg)
 
 int main(int argc, char **argv)
 {
-    ROS_INFO("starting");
+    ROS_INFO("starting cmd_vel transformer");
 
+    // Set up ros
     ros::init(argc, argv, "cmd_vel_transformer");
     ros::NodeHandle n;
 
+    // Set up the publishers
     ManualDrivePub = n.advertise<ctrl_pkg::ServoCtrlMsg>("/manual_drive", 10);
     ActivePub = n.advertise<std_msgs::Bool>("/active", 10);
+
+    // Set up the service client
     ServiceClient = n.serviceClient<ctrl_pkg::EnableStateSrv>("enable_state");
     
+    // Post an initial start call
     ctrl_pkg::EnableStateSrv enable_state_srv;
     enable_state_srv.request.isActive = true;
     if (ServiceClient.call(enable_state_srv)) {
@@ -94,13 +98,15 @@ int main(int argc, char **argv)
         ROS_ERROR("start call failed");
     }
 
+    // Start the subscriptions
     ros::Subscriber cmd_vel_sub = n.subscribe("/cmd_vel", 10, cmd_vel_callback);
     ros::Subscriber start_sub = n.subscribe("/start", 10, start_callback);
     //ros::Subscriber stop_sub = n.subscribe("/stop", 10, stop_callback);
 
+    // Start spinning
     ros::spin();
 
-    ROS_INFO("stopping");
+    ROS_INFO("stopping cmd_vel transformer");
 
     return 0;
 }

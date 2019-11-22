@@ -2,4 +2,5 @@
   <!-- activate the car and republish the /cmd_vel from teleop to the real controls -->
   <node name="cmd_vel_transformer" type="cmd_vel_transformer" pkg="formant_deepracer" />
   <node name="image_transformer" type="image_transformer" pkg="formant_deepracer" />
+  <node name="state_publisher" type="state_publisher" pkg="formant_deepracer" />
 </launch>

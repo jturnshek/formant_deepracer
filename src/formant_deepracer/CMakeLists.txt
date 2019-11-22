@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   ctrl_pkg
   image_transport
   cv_bridge
+  i2c_pkg
 )
 
 find_package(OpenCV REQUIRED)
@@ -116,3 +117,6 @@ target_link_libraries(cmd_vel_transformer ${catkin_LIBRARIES})
 
 add_executable(image_transformer src/image_transformer.cpp)
 target_link_libraries(image_transformer ${OpenCV_LIBS} ${catkin_LIBRARIES})
+
+add_executable(state_publisher src/state_publisher.cpp)
+target_link_libraries(state_publisher ${catkin_LIBRARIES})

@@ -8,7 +8,7 @@ https://d1.awsstatic.com/deepracer/getstarted.pdf
 
 ##### Install dependencies
 ```
-sudo apt install ros-kinetic-vision-opencv ros-kenetic-cv-bridge
+sudo apt install tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge
 ```
 
 ##### Install the formant agent

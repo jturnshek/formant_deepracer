@@ -84,7 +84,7 @@ runuser -l  deepracer -c 'sleep 15 && /home/deepracer/catkin_ws/start.sh'
 
 ## Running
 
-The ros nodes should now start in a tmux session called `formant_deepracer` upon startup, so reset the car if you haven't already. 
+The ros nodes should now start in a tmux session (for introspection purposes) called `formant_deepracer` upon startup, so reset the car if you haven't already. 
 
 If you'd like to run the launch file directly, you can do so with:
 ```

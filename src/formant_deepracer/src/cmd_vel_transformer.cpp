@@ -14,6 +14,8 @@ const float THROTTLE_CLAMP_VAL = 0.5;
 
 void cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& msg)
 {
+    ROS_INFO("got cmd vel");
+    
     float angle = msg->angular.z;
     float throttle = msg->linear.x;
 

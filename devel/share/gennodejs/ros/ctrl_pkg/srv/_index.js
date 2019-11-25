@@ -1,14 +1,14 @@
 
 "use strict";
 
-let NavThrottleSrv = require('./NavThrottleSrv.js')
-let EnableStateSrv = require('./EnableStateSrv.js')
 let ActiveStateSrv = require('./ActiveStateSrv.js')
+let EnableStateSrv = require('./EnableStateSrv.js')
 let ModelStateSrv = require('./ModelStateSrv.js')
+let NavThrottleSrv = require('./NavThrottleSrv.js')
 
 module.exports = {
-  NavThrottleSrv: NavThrottleSrv,
-  EnableStateSrv: EnableStateSrv,
   ActiveStateSrv: ActiveStateSrv,
+  EnableStateSrv: EnableStateSrv,
   ModelStateSrv: ModelStateSrv,
+  NavThrottleSrv: NavThrottleSrv,
 };

@@ -101,3 +101,5 @@ If you'd like to run the launch file directly, you can do so with:
 source catkin_ws/devel/setup.sh
 roslaunch catkin_ws/launch/formant.launch
 ```
+
+The Formant configuration will allow you to teleoperate the robot. It is possible that in some cases, the `/START` button may need to be pressed in order to engage the motors.

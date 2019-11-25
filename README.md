@@ -2,6 +2,16 @@
 
 This repository contains an entire catkin workspace that is built to provide more standard endpoints for the capabilities of an [AWS Deepracer](https://www.amazon.com/dp/B07JMHRKQG).
 
+It adds the following ros topics:
+
+| ROS topic                | ROS type                    | direction  |
+| ------------------------ | --------------------------- | ---------- |
+| /front_camera/compressed | sensor_msgs/CompressedImage | publisher  |
+| /cmd_vel                 | geometry_msgs/Twist         | subscriber |
+| /battery_level           | std_msgs/Int32              | publisher  |
+| /start                   | std_msgs/Bool               | subscriber |
+| /active                  | std_msgs/Bool               | publisher  |
+
 
 ## Setup
 #### Run though car setup 

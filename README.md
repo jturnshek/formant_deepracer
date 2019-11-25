@@ -26,7 +26,7 @@ https://d1.awsstatic.com/deepracer/getstarted.pdf
 ```
 Add apt dependencies:
 ```
-sudo apt install build-essential tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge
+sudo apt install build-essential tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge libvips42
 ```
 
 #### Set up the formant agent

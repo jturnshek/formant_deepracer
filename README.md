@@ -3,22 +3,23 @@
 This repository contains an entire catkin workspace that is built to provide more standard endpoints for the capabilities of an [AWS Deepracer](https://www.amazon.com/dp/B07JMHRKQG).
 
 
-### Setup
-##### Run though car setup 
+## Setup
+#### Run though car setup 
 
 https://d1.awsstatic.com/deepracer/getstarted.pdf
 
 
-##### Install dependencies
+#### Install dependencies
 ```diff
 - WARNING: I may have missed some... wasn't keeping track at first. 
 - Please add them here if you find missing dependencies.
 ```
+Add apt dependencies:
 ```
-sudo apt install tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge
+sudo apt install build-essential tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge
 ```
 
-##### Set up the formant agent
+#### Set up the formant agent
 
 1. Follow the steps to create a new device [here](https://app.formant.io/create-device).
 2. Configure the device with the following options:
@@ -62,18 +63,18 @@ Teleoperation:
       observe
 ```
 
-##### Clone this repository
+#### Clone this repository
 ```
 cd && git clone --recurse-submodules git@github.com:jturnshek/formant_deepracer.git catkin_ws
 ```
 
-##### Build the repository
+#### Build the repository
 ```
 cd ~/catkin_ws
 catkin_make
 ```
 
-##### Set the ros nodes to start on boot
+#### Set the ros nodes to start on boot
 
 In `/etc/rc.local`, add the command:
 ```
@@ -81,7 +82,7 @@ runuser -l  deepracer -c 'sleep 15 && /home/deepracer/catkin_ws/start.sh'
 ```
 
 
-### Running
+## Running
 
 The ros nodes should now start in a tmux session called `formant_deepracer` upon startup, so reset the car if you haven't already. 
 

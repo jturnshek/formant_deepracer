@@ -45,6 +45,9 @@ ROS:
   ADD STREAM:
     Telemetry stream name: battery_level
     Ingestion topic: /battery_level
+  ADD STREAM:
+    Telemetry stream name: start_button
+    Ingestion topic: /start
     
 Teleoperation:
   ADD ROS TELEOP STREAM:

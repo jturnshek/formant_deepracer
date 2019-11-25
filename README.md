@@ -28,6 +28,13 @@ cd ~/catkin_ws
 catkin_make
 ```
 
+##### Set the ros nodes to start on boot
+
+In `/etc/rc.local`, add the command:
+```
+runuser -l  deepracer -c 'sleep 15 && /home/deepracer/catkin_ws/start.sh'
+```
+
 
 ### Running
 

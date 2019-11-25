@@ -10,6 +10,10 @@ https://d1.awsstatic.com/deepracer/getstarted.pdf
 
 
 ##### Install dependencies
+```diff
+- WARNING: I may have missed some... wasn't keeping track at first. 
+- Please add them here if you find missing dependencies.
+```
 ```
 sudo apt install tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge
 ```

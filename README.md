@@ -48,6 +48,7 @@ ROS:
   ADD STREAM:
     Telemetry stream name: start_button
     Ingestion topic: /start
+    ROS message path: data
     
 Teleoperation:
   ADD ROS TELEOP STREAM:

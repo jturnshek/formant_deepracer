@@ -31,9 +31,6 @@ sudo apt install build-essential ros-kinetic-vision-opencv ros-kenetic-cv-bridge
 
 # Formant
 sudo apt install tmux vim libvips42
-
-# gRPC
-sudo apt install autoconf libtool pkg-config libgflags-dev libgtest-dev clang-5.0 libc++-dev
 ```
 
 #### Set up the formant agent

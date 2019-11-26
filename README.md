@@ -25,8 +25,15 @@ https://d1.awsstatic.com/deepracer/getstarted.pdf
 - Please add them here if you find missing dependencies.
 ```
 Add apt dependencies:
-```
-sudo apt install build-essential tmux vim ros-kinetic-vision-opencv ros-kenetic-cv-bridge libvips42
+```bash
+# ROS
+sudo apt install build-essential ros-kinetic-vision-opencv ros-kenetic-cv-bridge
+
+# Formant
+sudo apt install tmux vim libvips42
+
+# gRPC
+sudo apt install autoconf libtool pkg-config libgflags-dev libgtest-dev clang-5.0 libc++-dev
 ```
 
 #### Set up the formant agent

@@ -83,7 +83,7 @@ Teleoperation:
 
 #### Clone this repository
 ```
-cd && git clone --recurse-submodules git@github.com:jturnshek/formant_deepracer.git catkin_ws
+cd && git clone --recurse-submodules https://github.com/jturnshek/formant_deepracer.git catkin_ws
 ```
 
 #### Build the repository

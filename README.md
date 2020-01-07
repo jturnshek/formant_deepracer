@@ -27,7 +27,7 @@ https://d1.awsstatic.com/deepracer/getstarted.pdf
 Add apt dependencies:
 ```bash
 # ROS
-sudo apt install build-essential ros-kinetic-vision-opencv ros-kenetic-cv-bridge
+sudo apt install build-essential ros-kinetic-vision-opencv ros-kinetic-cv-bridge
 
 # Formant
 sudo apt install tmux vim libvips42

@@ -18,8 +18,8 @@ It adds the following ros topics:
 
 https://d1.awsstatic.com/deepracer/getstarted.pdf
 
+#### Dependencies
 
-#### Install dependencies
 Add apt dependencies:
 ```bash
 # ROS
@@ -29,10 +29,48 @@ sudo apt install build-essential ros-kinetic-vision-opencv ros-kinetic-cv-bridge
 sudo apt install tmux vim libvips42
 ```
 
+#### Clone this repository
+```
+cd && git clone --recurse-submodules https://github.com/jturnshek/formant_deepracer.git catkin_ws
+```
+
+#### Build the repository
+```
+source /opt/ros/kinetic/setup.sh
+cd ~/catkin_ws
+catkin_make
+```
+
+#### Set the ros nodes to start on boot
+
+In `/etc/rc.local`, add the command:
+```
+runuser -l  deepracer -c 'sleep 15 && /home/deepracer/catkin_ws/start.sh'
+```
+
 #### Set up the formant agent
 
 1. Follow the steps to create a new device [here](https://app.formant.io/create-device).
-2. Configure the device with the following options:
+
+2. When installing, you will be asked if you are using ROS:
+```
+Would you like to configure the Agent with ROS?
+
+Are you using ROS? [yes/no]
+```
+Enter `yes` and proceed.
+
+You will then be asked to specify a catkin workspace:
+```
+Enter the absolute path of your ROS catkin workspace to enable custom message discovery.
+ This may be changed at any time by modifying /var/lib/formant/.bashrc. The setup.bash is expected in
+ $CATKIN_WS/devel/setup.bash
+
+Catkin Workspace (optional) 
+```
+Enter `/home/deepracer/catkin_ws` and proceed.
+
+3. Configure the device with the following options:
 ```
 Global Configuration:
   Device tags:
@@ -76,25 +114,6 @@ Teleoperation:
       std_msgs/Bool
       observe
 ```
-
-#### Clone this repository
-```
-cd && git clone --recurse-submodules https://github.com/jturnshek/formant_deepracer.git catkin_ws
-```
-
-#### Build the repository
-```
-cd ~/catkin_ws
-catkin_make
-```
-
-#### Set the ros nodes to start on boot
-
-In `/etc/rc.local`, add the command:
-```
-runuser -l  deepracer -c 'sleep 15 && /home/deepracer/catkin_ws/start.sh'
-```
-
 
 ## Running
 

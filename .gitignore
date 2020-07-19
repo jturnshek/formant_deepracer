@@ -40,3 +40,6 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+# ROS build files
+devel
